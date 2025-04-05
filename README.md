@@ -60,7 +60,4 @@ Run the entire stack with:
 ```bash
 docker-compose up
 ```
-
-## 📝 License
-
-MIT License - 
+ 
