@@ -60,4 +60,9 @@ Run the entire stack with:
 ```bash
 docker-compose up
 ```
+<<<<<<< HEAD
  
+=======
+
+" Testing" 
+>>>>>>> 7fb1c0ad8a25c905dfce899c689dae76855a6bc7
