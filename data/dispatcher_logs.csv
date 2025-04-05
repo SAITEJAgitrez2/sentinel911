@@ -1,0 +1,6 @@
+dispatcher_id,name,badge_number,shift_start,shift_end,calls_handled,avg_response_time
+1,John Smith,B1234,2024-04-05 08:00:00,2024-04-05 16:00:00,12,45.5
+2,Sarah Johnson,B5678,2024-04-05 16:00:00,2024-04-06 00:00:00,15,42.3
+3,Michael Brown,B9012,2024-04-05 00:00:00,2024-04-05 08:00:00,8,38.7
+4,Emily Davis,B3456,2024-04-05 08:00:00,2024-04-05 16:00:00,14,41.2
+5,David Wilson,B7890,2024-04-05 16:00:00,2024-04-06 00:00:00,10,44.8 

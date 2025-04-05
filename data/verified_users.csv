@@ -1,0 +1,8 @@
+user_id,name,badge_number,role,department,verified_date,status
+1,John Smith,B1234,Dispatcher,Emergency Services,2024-01-15,active
+2,Sarah Johnson,B5678,Supervisor,Emergency Services,2024-01-15,active
+3,Michael Brown,B9012,Dispatcher,Emergency Services,2024-01-15,active
+4,Emily Davis,B3456,Dispatcher,Emergency Services,2024-01-15,active
+5,David Wilson,B7890,Supervisor,Emergency Services,2024-01-15,active
+6,Lisa Anderson,B1111,Administrator,IT Department,2024-01-15,active
+7,James Taylor,B2222,Analyst,Quality Control,2024-01-15,active 
