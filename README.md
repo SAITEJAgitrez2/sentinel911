@@ -61,6 +61,4 @@ Run the entire stack with:
 docker-compose up
 ```
 
-## 📝 License
-
-MIT License - 
+" Testing" 
