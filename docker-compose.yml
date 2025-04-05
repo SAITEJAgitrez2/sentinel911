@@ -4,51 +4,20 @@ services:
   backend:
     build: 
       context: ./backend
-      dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql://user:password@db:5432/sentinel911
-    depends_on:
-      - db
     volumes:
       - ./backend:/app
-      - ./data:/app/data
-    networks:
-      - sentinel911-network
+    environment:
+      - DEBUG=True
 
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    environment:
-      - VITE_API_URL=http://localhost:8000
     volumes:
       - ./frontend:/app
       - /app/node_modules
     depends_on:
-      - backend
-    networks:
-      - sentinel911-network
-
-  db:
-    image: postgres:15-alpine
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=sentinel911
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - sentinel911-network
-
-volumes:
-  postgres_data:
-
-networks:
-  sentinel911-network:
-    driver: bridge 
+      - backend 
