@@ -1,0 +1,17 @@
+[
+    {
+        "name": "John Doe",
+        "address": "123 Hollywood Blvd",
+        "famous_for": "Actor - Starred in 'Action Hero 3'"
+    },
+    {
+        "name": "Jane Smith",
+        "address": "456 Music Lane",
+        "famous_for": "Grammy-winning Musician"
+    },
+    {
+        "name": "Ali Khan",
+        "address": "789 Streamer Street",
+        "famous_for": "Popular Twitch Streamer"
+    }
+]
