@@ -1,9 +1,29 @@
+# Core API & Server
 fastapi==0.109.2
 uvicorn==0.27.1
+
+# File uploads
 python-multipart==0.0.9
+
+# Transcription
 openai-whisper==20231117
+
+# Security & Auth
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
+
+# Data validation
 pydantic==2.6.1
+
+# Environment variables
 python-dotenv==1.0.1
-motor==3.3.2 
+
+# MongoDB support (optional, remove if unused)
+motor==3.3.2
+
+# NLP & ML (if needed later)
+transformers==4.38.2
+torch>=2.0.0
+
+# Optional: audio processing support
+ffmpeg-python==0.2.0
