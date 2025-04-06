@@ -62,6 +62,6 @@ docker-compose up
 ```
 
 ## 📸 Screenshots
-
+The Screenshots specify the exact working of the system.
 ![Screenshot 1](images/Screenshot%20(170).png)
 ![Screenshot 2](images/Screenshot%20(171).png)
