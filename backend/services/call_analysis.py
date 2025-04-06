@@ -1,12 +1,11 @@
 from transformers import pipeline
 from datetime import datetime
+from typing import Optional
+import librosa
 
 # Load HuggingFace pipelines
 zero_shot_model = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
-sentiment_model = pipeline(
-    "sentiment-analysis",
-    model="distilbert/distilbert-base-uncased-finetuned-sst-2-english"
-)
+sentiment_model = pipeline("sentiment-analysis", model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")
 summary_model = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 # Labels for zero-shot classification
@@ -16,9 +15,10 @@ deception_labels = ["truthful", "deceptive"]
 
 def analyze_call(
     transcript: str,
-    duration: float = None,
-    status: str = None,
-    timestamp: str = None
+    duration: Optional[float] = None,
+    status: Optional[str] = None,
+    timestamp: Optional[str] = None,
+    audio_path: Optional[str] = None
 ) -> dict:
     try:
         if len(transcript.strip()) < 5:
@@ -30,6 +30,16 @@ def analyze_call(
                 "status": status or "completed",
                 "timestamp": timestamp or datetime.utcnow().isoformat()
             }
+
+        # Compute real audio duration if not passed
+        if not duration and audio_path:
+            try:
+                y, sr = librosa.load(audio_path)
+                duration = round(librosa.get_duration(y=y, sr=sr), 2)
+            except Exception:
+                duration = round(len(transcript.split()) / 3.0, 2)
+        elif not duration:
+            duration = round(len(transcript.split()) / 3.0, 2)
 
         # Zero-shot urgency detection
         urgency_result = zero_shot_model(transcript, candidate_labels=urgency_labels)
@@ -60,12 +70,11 @@ def analyze_call(
             do_sample=False
         )[0]["summary_text"]
 
-        # Provide dispatcher-monitor-friendly metadata
         return {
             "urgency_score": urgency_score,
             "deception_score": deception_score,
             "summary": summary_result,
-            "duration": duration or round(len(transcript.split()) / 3.0, 2),  # Approx duration in sec
+            "duration": duration,
             "status": status or "completed",
             "timestamp": timestamp or datetime.utcnow().isoformat()
         }

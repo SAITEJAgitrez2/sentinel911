@@ -30,5 +30,9 @@ motor==3.3.2
 transformers==4.38.2
 torch>=2.0.0
 
-# Optional: audio processing support
+# audio processing support
 ffmpeg-python==0.2.0
+# other support
+librosa 
+soundfile
+
