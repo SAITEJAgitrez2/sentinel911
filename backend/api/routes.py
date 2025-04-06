@@ -3,8 +3,8 @@ from pydantic import BaseModel
 from services.transcriber import transcribe_audio
 from services.call_analysis import analyze_call
 from services.swat_detector import detect_swat
-from backend.services.agent_explainer import generate_explanation
-from backend.services.transcriber import transcribe_audio
+from services.agent_explainer import generate_explanation
+from services.transcriber import transcribe_audio
 from services.agent_explainer import generate_explanation
 from services.dispatcher_monitor import evaluate_dispatcher
 from typing import Dict, Any, List, Optional
