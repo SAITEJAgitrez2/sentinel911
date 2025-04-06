@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-
+import traceback
 from services.call_analysis import analyze_call
 from services.swat_detector import detect_swat
 from services.agent_explainer import generate_explanation
@@ -132,4 +132,12 @@ async def full_analysis_endpoint(
         })
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        tb = traceback.format_exc()
+        print("Error during full_analysis:", tb)
+        return JSONResponse(
+        status_code=500,
+        content={
+            "error": str(e),
+            "traceback": tb
+        }
+    )

@@ -1,1 +1,0 @@
-// Displays individual result blocks
