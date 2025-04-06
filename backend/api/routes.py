@@ -3,6 +3,8 @@ from pydantic import BaseModel
 from services.transcriber import transcribe_audio
 from services.call_analysis import analyze_call
 from services.swat_detector import detect_swat
+from backend.services.agent_explainer import generate_explanation
+from backend.services.transcriber import transcribe_audio
 
 router = APIRouter()
 
@@ -31,3 +33,17 @@ async def detect_swat_call(input: CallInput):
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+        
+class ExplainRequest(BaseModel):
+    call_analysis: Dict[str, Any]
+    dispatcher_report: Dict[str, Any]
+    swat_check: Dict[str, Any]
+
+@router.post("/agent/explain")
+async def explain_agent_decision(payload: ExplainRequest):
+    explanation = generate_explanation(
+        payload.call_analysis,
+        payload.dispatcher_report,
+        payload.swat_check
+    )
+    return explanation
