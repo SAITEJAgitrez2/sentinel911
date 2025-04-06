@@ -2,6 +2,11 @@
 fastapi==0.109.2
 uvicorn==0.27.1
 
+# Data analysis & ML
+pandas==2.2.0
+numpy==1.26.4
+scikit-learn==1.6.1
+
 # File uploads
 python-multipart==0.0.9
 
