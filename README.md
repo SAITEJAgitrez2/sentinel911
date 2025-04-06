@@ -60,3 +60,8 @@ Run the entire stack with:
 ```bash
 docker-compose up
 ```
+
+## 📸 Screenshots
+
+![Screenshot 1](images/Screenshot%20(170).png)
+![Screenshot 2](images/Screenshot%20(171).png)
