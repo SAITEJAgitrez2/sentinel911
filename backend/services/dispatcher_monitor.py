@@ -18,6 +18,7 @@ def compute_basic_stats(call_logs: List[Dict]) -> Dict:
 
     Each log should include: duration (in seconds), status, timestamp (ISO format).
     """
+
     df = pd.DataFrame(call_logs)
 
     if df.empty:
@@ -25,19 +26,23 @@ def compute_basic_stats(call_logs: List[Dict]) -> Dict:
             "avg_duration": 0.0,
             "drop_rate": 0.0,
             "short_call_count": 0,
-            "total_calls": 0
+            "total_calls": 0,
+            "instant_alert": False
         }
 
     avg_duration = df["duration"].mean()
     drop_rate = (df["status"] == "dropped").sum() / len(df)
-    short_call_count = (df["duration"] < 10).sum()
+    short_call_count = (df["duration"] < 1).sum()  # Calls less than 1 second
+    instant_alert = short_call_count > 0  # 🚨 Raise alert if any instant call
 
     return {
-        "avg_duration": round(avg_duration, 2),
-        "drop_rate": round(drop_rate, 2),
+        "avg_duration": avg_duration,
+        "drop_rate": drop_rate,
         "short_call_count": int(short_call_count),
-        "total_calls": len(df)
+        "total_calls": len(df),
+        "instant_alert": instant_alert  # 🚨 True if there's a suspiciously short call
     }
+
 
 
 def analyze_dispatcher_behavior(stats: Dict) -> Dict:
