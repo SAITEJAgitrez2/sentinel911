@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@headlessui/react": "^2.2.1",
+    "@heroicons/react": "^2.2.0",
+    "autoprefixer": "^10.4.21",
+    "axios": "^1.8.4",
+    "postcss": "^8.5.3",
+    "react-query": "^3.39.3",
+    "tailwindcss": "^4.1.3"
+  }
+}

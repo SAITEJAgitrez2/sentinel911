@@ -3,7 +3,7 @@ import whisper
 from fastapi import UploadFile
 
 # Load Whisper model once (choose model size based on accuracy/speed trade-off)
-model = whisper.load_model("base")  # You can also try "small", "medium", or "large"
+model = whisper.load_model("large")  # You can also try "small", "medium", or "large"
 
 async def transcribe_audio(file: UploadFile) -> str:
     try:
