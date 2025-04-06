@@ -7,7 +7,7 @@ An AI-powered emergency oversight system for 911 call centers that uses NLP, ano
 - Real-time call transcript analysis using NLP
 - Anomaly detection for dispatcher behavior patterns
 - Agentic AI system for alert explanation and reasoning
-- Modern React dashboard for monitoring and analysis
+- Modern Next.js dashboard for monitoring and analysis
 - FastAPI backend with clean architecture
 - ML/LLM models for processing and reasoning
 
@@ -16,7 +16,7 @@ An AI-powered emergency oversight system for 911 call centers that uses NLP, ano
 ```
 .
 ├── backend/           # FastAPI application
-├── frontend/         # React (Vite) dashboard
+├── frontend/         # Next.js dashboard
 ├── data/            # Sample data and logs
 ├── notebooks/       # Development and experimentation
 └── docs/           # Documentation
@@ -25,7 +25,7 @@ An AI-powered emergency oversight system for 911 call centers that uses NLP, ano
 ## 🛠️ Tech Stack
 
 - **Backend**: FastAPI, PyOD, HuggingFace Transformers, SHAP, LangChain
-- **Frontend**: React, TailwindCSS, Vite
+- **Frontend**: Next.js, TailwindCSS
 - **ML**: NLP (urgency/deception), Anomaly Detection, Whisper (STT)
 - **Agent**: LangChain with explainability
 
@@ -60,9 +60,3 @@ Run the entire stack with:
 ```bash
 docker-compose up
 ```
-<<<<<<< HEAD
- 
-=======
-
-" Testing" 
->>>>>>> 7fb1c0ad8a25c905dfce899c689dae76855a6bc7
