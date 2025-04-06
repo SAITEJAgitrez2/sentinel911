@@ -16,7 +16,7 @@ An AI-powered emergency oversight system for 911 call centers that uses NLP, ano
 ```
 .
 ├── backend/           # FastAPI application
-├── frontend/         # Next.js dashboard
+├── sentinel911-ui      # Next.js dashboard
 ├── data/            # Sample data and logs
 ├── notebooks/       # Development and experimentation
 └── docs/           # Documentation
